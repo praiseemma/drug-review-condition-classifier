@@ -510,14 +510,6 @@ These reviews were set aside in cleaning. They were not used for training, tunin
 
 Depression is the largest drop among the big classes (recall 0.850 → 0.804, precision 0.758 → 0.689); the reason was not investigated. Only the final model was run on the test set, so the text-only (0.737) and drug-only (0.741) comparisons rest on validation alone.
 
-## Pending decisions and next steps
-1. ~~Fit `class_weight='balanced'` and compare per class~~ Done (see above).
-2. ~~Downsampling Birth Control~~ Not run (decision): class weighting did not help, and Birth Control reaches F1 0.96 with the drug, so class size is not the main problem.
-3. ~~Drug-name-only and text + drug models~~ Done (see above). The 30-class pair check is also done (see above). The 623-short-review evaluation is also done (see *Short reviews*).
-4. ~~Anxiety family~~ Decision: the four classes stay separate. They remain the weakest classes and are listed as a limitation. If merging, re-run the duplicate check (the Anxiety / Anxiety and Stress pair has 2 review texts under both labels).
-5. Optional experiments (`min_df=2`, bigrams, light negation handling): not run; listed as future work.
-6. ~~Final test~~ Done (see *Test file cleaning and final test*).
-
 ## Limitations
 - **Overlapping labels limit macro F1.** The anxiety family, Abnormal Uterine Bleeding vs. Birth Control, and the merged pairs share vocabulary and often share drugs. Part of the label seems to be a choice among the conditions a drug is listed for, which text alone cannot recover.
 - **The drug-name models are not pure NLP results.** In real use the drug is usually known, but the write-up reports the text-only and drug-only models separately.
